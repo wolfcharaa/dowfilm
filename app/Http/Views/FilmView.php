@@ -17,10 +17,7 @@ class FilmView extends Controller
     public function mainPage(Request $request)
     {
         $queryParams = $request->toArray();
-
-
-
-
+        $films = Film::all();
 
         return view('main_page', [
             "genres" => Genre::all(),
@@ -32,7 +29,7 @@ class FilmView extends Controller
                 '6-8',
                 '>8',
             ],
-            "films" => Film::all(),
+            "films" => $films,
 
         ]);
     }
